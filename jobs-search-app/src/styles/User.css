@@ -1,0 +1,41 @@
+.User {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.avatar__wrapper {
+    max-width: 250px;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.avatar__wrapper img {
+    border-radius: 50%;
+    border: 6px solid #edf8ff;
+}
+
+.user__header {
+    font-weight: 700;
+    color: #161616;
+    font-size: 3rem;
+}
+
+.user__email {
+    color: #00a2e8;
+    padding-top: 10px;
+    padding-bottom: 25px;
+    font-size: 1.8rem;
+}
+
+.filters__header {
+    font-weight: 700;
+    padding-right: 20px;
+    font-size: 2.2rem;
+}
+
+.filter {
+    font-size: 1.9rem;
+    padding-right: 10px;
+    
+}

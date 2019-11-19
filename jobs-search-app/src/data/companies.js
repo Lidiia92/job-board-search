@@ -1,4 +1,4 @@
-const companies = [
+const companiesData = [
     {
         "id": 1,
         "company_name": "Company A",
@@ -70,4 +70,4 @@ const companies = [
     },
 ];
 
-export default companies;
+export default companiesData;
