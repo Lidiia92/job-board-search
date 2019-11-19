@@ -69,3 +69,5 @@ const companies = [
         "optional_requirements": [[]]
     },
 ];
+
+export default companies;
