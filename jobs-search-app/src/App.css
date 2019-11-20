@@ -15,6 +15,8 @@
   margin-top: 20px;
 }
 
+/* Button styles */
+
 .btn {
   padding: 10px;
   width: 120px;
@@ -35,8 +37,15 @@
   background: #ff8c00;
 }
 
+/* Modifying classes */
+
 .mg-r-sm {
   margin-right: 10px;
 }
+
+.header-normal {
+  font-weight: 400;
+}
+
 
 

@@ -14,7 +14,7 @@ export default function User({user}) {
                 <p className="user__email">{user.email}</p>
                 <div>
                     <span className="filters__header">What I have: </span>
-                    {user.filters && user.filters.map((filter, id) => <span key={id} className="filter">{filter}</span>)}
+                        {user.filters && user.filters.map((filter, id) => <span key={id} className="filter">{filter}{id !== user.filters.length - 1 ? ',' : ''}</span>)}
                 </div>
             </div>
         </div>

@@ -13,7 +13,7 @@ function App() {
   const [companies, setCompanies] = useState([])
 
   useEffect(() => {
-    setCompanies([...companiesData])
+    initialCompanies()
     setUser({...userData})
   }, []);
 
@@ -29,20 +29,27 @@ function App() {
 
 
       //CASE 1: Company has requirements and optional requirements fields
-      if(requirements.length > 0 && optional_requirements[0].length > 0) {
+      if(requirements.length > 0 && optional_requirements[0].length > 0 && !company.optional) {
         if(requiredChecker(requirements, userFilters) && optionalChecker(optional_requirements, userFilters)) {
           filteredCompanies.push(company);
         }
       } 
+
+      //CASE 2: Company has requirements and optional requirements fields, but user need to match of of them
+      else if (requirements.length > 0 && optional_requirements[0].length > 0 && company.optional) {
+        if(requiredChecker(requirements, userFilters) || optionalChecker(optional_requirements, userFilters)) {
+          filteredCompanies.push(company);
+        }
+      }
       
-      //CASE 2: Company has only requirements field
+      //CASE 3: Company has only requirements field
       else if(requirements.length > 0 && optional_requirements[0].length === 0) {
         if(requiredChecker(requirements, userFilters)) {
           filteredCompanies.push(company);
         }
       }
 
-      //CASE 3: Company has only optional requirements field
+      //CASE 4: Company has only optional requirements field
       else if (requirements.length === 0 && optional_requirements[0].length > 0) {
         if(optionalChecker(optional_requirements, userFilters)) {
           filteredCompanies.push(company);
@@ -50,7 +57,7 @@ function App() {
         }
       } 
 
-      //CASE 4: Company does not have requiremtns and optional requirements fields
+      //CASE 5: Company does not have requiremtns and optional requirements fields
       else if (requirements.length === 0 && optional_requirements[0].length === 0) {
         filteredCompanies.push(company);
       }
@@ -76,13 +83,24 @@ function App() {
     return check;
   }
 
+  //Get first 10 results from the companies db
+  const initialCompanies = () => {
+    const companies = [];
+
+    for (let i = 0; i < 10; i++) {
+      companies.push(companiesData[i]);
+    }
+
+    setCompanies([...companies])
+  }
+
   return (
 
     <div className="App">
       <User user={user}/>
 
       <div className="buttons__wrapper">
-        <button className="btn btn-primary mg-r-sm">All Jobs</button>
+        <button className="btn btn-primary mg-r-sm" onClick={initialCompanies}>All Jobs</button>
         <button className="btn btn-orange" onClick={filterJobs}>Match Me</button>
       </div>
 
