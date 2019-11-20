@@ -34,8 +34,19 @@
     font-size: 2.2rem;
 }
 
+.filters__delete {
+    position: relative;
+    bottom: 5px;
+    color: salmon;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-left: 6px;
+    cursor: pointer;
+    
+}
+
 .filter {
     font-size: 1.9rem;
     padding-right: 10px;
-    
+
 }

@@ -13,9 +13,9 @@ function App() {
   const [companies, setCompanies] = useState([])
 
   useEffect(() => {
-    initialCompanies()
     setUser({...userData})
-  }, []);
+    initialCompanies()
+  }, [user.filters]);
 
 
   const filterJobs = () => {
@@ -94,10 +94,26 @@ function App() {
     setCompanies([...companies])
   }
 
+  //Deleting User's filters
+
+  const deleteFilter = (id) => {
+    setUser({...user, filters: user.filters.splice(id, 1)})
+    console.log(user)
+  }
+
+  //Adding new filter to the user's filters list
+  const addNewFilter = (e, filter) => {
+    e.preventDefault()
+    setUser({...user, filters: user.filters.push(filter)})
+    console.log(user)
+  }
+
+  console.log(userData);
+
   return (
 
     <div className="App">
-      <User user={user}/>
+      <User user={userData} deleteFilter={deleteFilter} addNewFilter={addNewFilter}/>
 
       <div className="buttons__wrapper">
         <button className="btn btn-primary mg-r-sm" onClick={initialCompanies}>All Jobs</button>
