@@ -45,6 +45,13 @@
     
 }
 
+.filters__form input {
+    margin-top: 10px;
+    padding: 12px 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
 .filter {
     font-size: 1.9rem;
     padding-right: 10px;
